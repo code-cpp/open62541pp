@@ -23,7 +23,7 @@ TEST_CASE_TEMPLATE("Method service set", T, Server, Client, Async<Client>) {
         objectsId,
         methodId,
         "Add",
-        [&](Span<const Variant> inputs, Span<Variant> outputs) {
+        [&](opcua::Session&, const opcua::NodeId&, Span<const Variant> inputs, Span<Variant> outputs) {
             if (throwException) {
                 throw BadStatus(UA_STATUSCODE_BADUNEXPECTEDERROR);
             }
